@@ -1,0 +1,35 @@
+- Descargamos los XML en versión OJS2 (v2) de la página original (users/issues).
+- Creamos un servidor virtual con OJS2 con XAMPP.
+- Subimos los XML (v2) al OJS2 virtual.
+- Actualizamos el OJS2 a OJS3 en el servidor virtual.
+- Descargamos los XML en versión OJS3 (v3) del servidor virtual (users/issues) - nombre: ojs3.
+- Creamos otro servidor virtual con una instalación directa de OJS3 (en este caso fue con LAPP, pero no es importante) - nombre: ojs3new
+- Subimos el XML de users al nuevo servidor virtual, miramos los errores y usamos sed en bash para corregirlos.
+- Subimos el XML de cada issue al nuevo servidor virtual, miramos los errores comunes y usamos sed en bash para corregirlos.
+  - Mirar archivos inst_tecciencia y xml_proc en este repositorio, modificar según la necesidad.
+  - Error de XML, usar bash para eliminar campos que aparecen en errores para cada issue.
+  - Error de "The content is not encoded as base64", ir a ojs3, crear copia de issue, en la copia eliminar archivos superfluos (ver notas), intentar subirlos otra vez y arreglar el XML según los errores que aparezcan. Se puede usar el mismo comando en bash luego de esto
+- Los XML v3 corregidos se llaman por ejemplo 11_p.xml, los crudos se llaman 11.xml y si han sido modificados por errores "base64" entonces se llaman 11_c.xml. En el drive sólo están 
+
+- ojs3 servidor virtual de 2-3 (actualizado) en /opt/lampp
+- ojs3new servidor virtual no. 2 (de prueba para verificar compatibilidad) en /home/lappstack
+
+Notas:
+- No teníamos acceso como administradores al OJS2 original, por lo que no podíamos hacer la actualización desde ahí.
+- OJS2 funciona con PHP5, por lo cual el XAMPP para el servidor virtual debe cumplir ese requisito.
+- LAPP viene por defecto con PHP7, por lo que no se puede hacer la actualización OJ2 a OJS3
+- Para que funcione LAPP o XAMPP hay que:
+  - sudo service mysql stop (lo mismo con postgresql)
+  - sudo ./manager_linux... en donde esté LAPP o XAMPP
+- Para comenzar la instalación de OJS https://pkp.sfu.ca/ojs/README
+  - hacer chmod a los directorios en la instalacion:
+      - config.inc.php (optional -- if not writable you will be prompted to manually overwrite this file during installation)
+	    - public
+	    - cache
+- Hacer chmod 777 a files_others en ojs3new para exportar
+- Al instalar sea XAMPP o LAPP, hay que cambiar en php.ini memory_limit, post_max_size y upload_max_filesize
+- Se pueden descargar varios issues a la vez, pero el archivo pesa más de 200M
+- Los XML v2-3 no son directamente compatibles con OJS3, por eso hay que modificarlos en bash
+- En principio aplicar xml_proc directamente debería arreglar los XML de los issues, pero algunos requirieron más procesamiento (18-23).
+- El issue 18 requirió sed 's#disciplin\>#discipline#g' 18_p.xml > 18_p2.xml
+- Algunos de los siguientes requirieron eliminar algunos archivos de una copia del issue en el que no eran pdf ni html (correcciones, etc.)
