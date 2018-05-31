@@ -1,0 +1,4 @@
+sed 's#user_group_ref="Journal manager"##g' 10.xml > 10_p.xml
+sed 's#disciplin\>#discipline#g' 18_p.xml > 18_p2.xml
+
+
