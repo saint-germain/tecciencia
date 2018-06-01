@@ -41,7 +41,7 @@
 - Los XML v2-3 no son directamente compatibles con OJS3, por eso hay que modificarlos en bash
 - En principio aplicar xml_proc directamente debería arreglar los XML de los issues, pero algunos requirieron más procesamiento (18-23).
 - No es posible modificar titulos y descripciones de issues en la nueva plataforma, hay que hacer las modificaciones en el servidor virtual ojs3.
-- Es posible migrar los archivos del servidor virtual (usando XAMPP): htdocs/ojs2, ojs.sql (dónde?), files_other/, config.inc.pho,. Mirar permisos.
+- Es posible migrar los archivos del servidor virtual (usando XAMPP) a otro servidor virtual: htdocs/ojs3, ojs.sql (descargar de phppgadmin y subir al nuevo servidor), files_other/, config.inc.php. Mirar permisos.
 
 ### Problemas especificos de issues
 
