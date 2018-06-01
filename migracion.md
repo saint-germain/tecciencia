@@ -1,4 +1,5 @@
 - Descargamos los XML en versión OJS2 (v2) de la página original (users/issues).
+  - Están en el Drive de la revista como (p.ej.) issue_15.xml
 - Creamos un servidor virtual con OJS2 con XAMPP.
 - Subimos los XML (v2) al OJS2 virtual.
 - Actualizamos el OJS2 a OJS3 en el servidor virtual.
@@ -9,7 +10,7 @@
   - Mirar archivos inst_tecciencia y xml_proc en este repositorio, modificar según la necesidad.
   - Error de XML, usar bash para eliminar campos que aparecen en errores para cada issue.
   - Error de "The content is not encoded as base64", ir a ojs3, crear copia de issue, en la copia eliminar archivos superfluos (ver notas), intentar subirlos otra vez y arreglar el XML según los errores que aparezcan. Se puede usar el mismo comando en bash luego de esto
-- Los XML v3 corregidos se llaman por ejemplo 11_p.xml, los crudos se llaman 11.xml y si han sido modificados por errores "base64" entonces se llaman 11_c.xml. En el drive sólo están 
+  - Los XML v3 corregidos se llaman por ejemplo 11_p.xml, los crudos se llaman 11.xml y si han sido modificados por errores "base64" entonces se llaman 11_c.xml. 
 
 - ojs3 servidor virtual de 2-3 (actualizado) en /opt/lampp
 - ojs3new servidor virtual no. 2 (de prueba para verificar compatibilidad) en /home/lappstack
