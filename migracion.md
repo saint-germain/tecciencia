@@ -38,7 +38,7 @@
 - Hacer chmod 777 a files_others en ojs3new para exportar
 - Al instalar sea XAMPP o LAPP, hay que cambiar en php.ini memory_limit, post_max_size y upload_max_filesize
 - Se pueden descargar varios issues a la vez, pero el archivo pesa más de 200M
-- Los XML v2-3 no son directamente compatibles con OJS3, por eso hay que modificarlos en bash
+- Los XML v3 no son directamente compatibles con OJS3, por eso hay que modificarlos en bash
 - En principio aplicar xml_proc directamente debería arreglar los XML de los issues, pero algunos requirieron más procesamiento (18-23).
 - No es posible modificar titulos y descripciones de issues en la nueva plataforma, hay que hacer las modificaciones en el servidor virtual ojs3.
 - Es posible migrar los archivos del servidor virtual (usando XAMPP) a otro servidor virtual: htdocs/ojs3, ojs.sql (descargar de phppgadmin y subir al nuevo servidor), files_other/, config.inc.php. Mirar permisos.
